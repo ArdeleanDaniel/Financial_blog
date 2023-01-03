@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	{{ article.title }}
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='read.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+	<div class="left">
+		<h2 class="title">{{ article.title }}</h2>
+		<div class="user-time">
+			<p id="username">{{ article.user.username }}</p>
+			<p>{{ article.date.strftime('%d.%m.%Y %H:%M')}}</p>
+		</div>
+		<div id="main-img">
+			<img src="{{ article.image }}" id="img">
+		</div>
+		<pre class="pre">{{ article.text }}</pre>
+		<div class="user-time"></div>
+		{% for comment in comments %}
+			<div id="comment-top" >
+				<div class="comment-margins">{{ comment.user.username }}</div>
+				<div class="comment-margins">{{ comment.date.strftime('%d.%m.%Y %H:%M') }}</div>
+			</div>
+			<div id="comment-text" class="comment-margins">
+				<p>{{ comment.text }}</p>
+			</div>
+		{% endfor %}
+
+		{% if current_user.is_authenticated %}
+			<form class="comment-form" method="POST">
+				{{ form.hidden_tag() }}
+				<h2>Comment</h2>
+					{{ form.text (class='comment-input') }}	
+				<div>{{ form.submit (class='comment-submit') }}</div>
+			</form>
+		{% endif %}
+	</div>
+	<div class="right"></div>
+</div>
+{% endblock %}

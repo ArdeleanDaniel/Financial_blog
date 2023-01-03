@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="#">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
+	<title>Register page</title>
+</head>
+<body>
+	
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages  %}
+					{{ message }}	
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		
+		<form id="form" method="POST">
+			{{ form.hidden_tag() }}
+			<h2>Register</h2>
+		
+
+				{{ form.username (class='input') }}
+			
+				{{ form.email (class='input') }}
+			
+				{{ form.password (class='input') }}
+
+				{{ form.password2 (class='input') }}
+			
+			
+				{{ form.submit (class='submit') }}
+			
+		</form>
+		
+	
+	
+</body>
+</html>

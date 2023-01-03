@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="#">
+	<title>
+		{% block title %}
+
+	    {% endblock %}
+	</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<style> @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap'); </style>
+	<style> @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap'); </style>
+		{% block css %}
+
+		{% endblock %}
+</head>
+<body>
+<section id="top">
+	<div class="center" id="exchange-bar">
+		<div id="rates">
+			<!--p class="p1">EUR:{{eur}} RON    USD:{{usd}} RON</p-->
+		</div>
+	</div>
+	
+
+	<div id="header">
+		<div id="logo-bar" class="center" >
+			<h1 id="logo">MY FINANCIAL BLOG</h1>
+			<div>
+				{% if current_user.is_authenticated %}
+				<a href="#"><img src="/static/user.png" title="User menu" class="user-action-img" id="user"></a>
+				<a href="/write_article"><img src="/static/edit.png" title="Write article" class="user-action-img" id="write"></a>
+				<a href="logout"><img src="/static/logout.png" title="Logout" class="user-action-img" id="logout"></a>
+				
+				{% else %}
+				<a class='top-bar-button' href="register">Register</a>
+				<a class='top-bar-button' href="login">Login</a>
+				{% endif %}
+			</div>
+			
+		</div>
+	</div>
+	<div id="navbar">
+		<div class="center">
+			<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="">Economy</a></li>
+				<li><a href="">Finance</a></li>
+				<li><a href="">Politics</a></li>
+			</ul>
+		</div>
+		
+	</div>
+</section>
+
+{% block content %}
+
+{% endblock %}
+
+	
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block title %}
+	Home
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+
+
+{% block content %}
+	<div class="home-center">
+		{% for article in articles %}
+		<div class="article-tile">
+			<div style="background-image: url('{{ article.image }}');" class="article-tile-img">
+			</div>
+			<div class="article-tile-body">
+				<h3><a href="/{{ article.title }}">{{ article.title }}</a ></h3>
+				<span>{{ article.text }}</span>
+			</div>
+			
+		</div>
+		
+		{% endfor %}
+	</div>
+	
+{% endblock %}
