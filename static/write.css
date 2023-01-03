@@ -61,7 +61,6 @@ input[type=file]::file-selector-button {
 }
 
 .submit {
-	
 	border: none;
 	border-radius: 18px;
 	padding: 5px 8px;

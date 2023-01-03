@@ -9,13 +9,25 @@ html, body {
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Roboto Mono', monospace;
-
 }
 
 #top {
 	display: flex;
 	flex-direction: column;
 }
+
+#exchange-bar {
+	height: 35px;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+}
+
+#flash {
+
+}
+
 #rates {
 	
 	
@@ -116,10 +128,3 @@ html, body {
 	margin: 0 5px;
 }
 
-#exchange-bar {
-	height: 35px;
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: end;
-	align-items: center;
-}

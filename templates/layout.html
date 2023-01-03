@@ -19,8 +19,17 @@
 <body>
 <section id="top">
 	<div class="center" id="exchange-bar">
+		<div>
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<p>{{ message }}</p>
+					{% endfor %}
+				{% endif %}	
+			{% endwith %}
+		</div>
 		<div id="rates">
-			<!--p class="p1">EUR:{{eur}} RON    USD:{{usd}} RON</p-->
+		<!--p class="p1">EUR:{{eur}} RON    USD:{{usd}} RON</p-->
 		</div>
 	</div>
 	

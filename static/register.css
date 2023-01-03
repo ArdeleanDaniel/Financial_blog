@@ -56,5 +56,11 @@ h2 {
 .submit:hover {
 	cursor: pointer;
 	background-color: #2E5883;
+}
 
+.flash {
+	position: fixed;
+	height: 30px;
+	margin: 0 auto;
+	top: 30px;
 }
