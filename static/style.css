@@ -24,13 +24,26 @@ html, body {
 	align-items: center;
 }
 
-#flash {
-
+.flash {
+	font-size: 18px;
+	font-weight: bolder;
+	color: #FF8533;
+	display: flex;
+	align-items: center;
+	background-color: aliceblue;
+	border-radius: 5px;
+	padding: 0 3px;
 }
 
-#rates {
-	
-	
+.closeflash {
+	font-size: 25px;
+	color: #00203D;
+	margin-left: 5px;
+}
+
+.closeflash:hover {
+	font-size: 28px;
+	cursor: pointer;
 }
 
 #rates p {

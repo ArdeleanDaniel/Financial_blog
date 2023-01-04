@@ -59,8 +59,18 @@ h2 {
 }
 
 .flash {
-	position: fixed;
-	height: 30px;
-	margin: 0 auto;
-	top: 30px;
+	padding-left: 10px;
+	margin: 15px auto;
+	background-color: #3a6ea5ff;
+	color: white;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.closeflash {
+	font-size: 25px;
+	cursor: pointer;
+	margin-right: 10px;
 }

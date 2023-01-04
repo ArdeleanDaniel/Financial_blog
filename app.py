@@ -42,8 +42,11 @@ def register_page():
 			db.session.add(user)
 			db.session.commit()
 			flash('You are registered!')
+			return redirect('/home')
 		except:
 			flash('Please, enter valid and unique credentials!')
+			return redirect('/register')
+
 	return render_template('register.html', form=form)
 
 
@@ -66,6 +69,7 @@ def login():
 @login_required
 def logout():
 	logout_user()
+	flash('Successfully logged out!')
 	return redirect('home')
 
 @app.route('/write_article', methods=['GET', 'POST'])

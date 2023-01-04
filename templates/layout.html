@@ -19,14 +19,16 @@
 <body>
 <section id="top">
 	<div class="center" id="exchange-bar">
-		<div>
+		<div class="flash">
 			{% with messages = get_flashed_messages() %}
 				{% if messages %}
 					{% for message in messages %}
-						<p>{{ message }}</p>
+						{{ message }}
+						<span class="closeflash" onclick="this.parentElement.style.display='none';">&times;</span>
 					{% endfor %}
 				{% endif %}	
 			{% endwith %}
+
 		</div>
 		<div id="rates">
 		<!--p class="p1">EUR:{{eur}} RON    USD:{{usd}} RON</p-->

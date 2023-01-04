@@ -12,7 +12,10 @@
 		{% with messages = get_flashed_messages() %}
 			{% if messages %}
 				{% for message in messages  %}
-					{{ message }}	
+					<div class="flash">
+						{{ message }}
+						<span class="closeflash" onclick="this.parentElement.style.display='none';">&times;</span>	
+					</div>	
 				{% endfor %}
 			{% endif %}
 		{% endwith %}

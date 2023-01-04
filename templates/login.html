@@ -10,26 +10,29 @@
 </head>
 <body>
 	<div >
-		<div class="flash">
+		
 			{% with messages = get_flashed_messages() %}
 			{% if messages %}
 				{% for message in messages  %}
-					{{ message }}	
+					<div class="flash">
+						{{ message }}
+						<span class="closeflash" onclick="this.parentElement.style.display='none';">&times;</span>	
+					</div>
 				{% endfor %}
 			{% endif %}
 			{% endwith %}
-		</div>
 		
-			<form id="form" method="POST">
-				{{ form.hidden_tag() }}
-					<h2 >Login</h2>
-				
-					{{ form.username (class='input') }}
+		
+		<form id="form" method="POST">
+			{{ form.hidden_tag() }}
+				<h2 >Login</h2>
+			
+				{{ form.username (class='input') }}
 
-					{{ form.password (class='input') }}
-						
-				{{ form.submit (class='submit') }}	
-			</form>
+				{{ form.password (class='input') }}
+					
+			{{ form.submit (class='submit') }}	
+		</form>
 		
 	</div>
 </body>
