@@ -20,6 +20,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin: 0 auto;
 }
 
 h2 {
@@ -70,7 +71,8 @@ h2 {
 }
 
 .closeflash {
-	font-size: 25px;
+	font-size: 30px;
 	cursor: pointer;
 	margin-right: 10px;
+	margin-left: 10px;
 }
