@@ -19,7 +19,7 @@ class ArticleForm(FlaskForm):
 	title = StringField('Title', render_kw={'placeholder':'Title'}, validators=[DataRequired()])
 	text = TextAreaField('Text', render_kw={'placeholder':'Article text'},  validators=[DataRequired()])
 	image = FileField('Article Image', validators=[DataRequired()])
-	artycle_type = SelectField('Choose article type:', choices=[('Economy'), ('Finance'), ('Politics') , ('Other')], validators=[DataRequired()])
+	article_type = SelectField('Choose article type:', choices=[('Economy'), ('Finance'), ('Politics') , ('Various')], validators=[DataRequired()])
 	submit = SubmitField('Submit Article')
 
 class CommentForm(FlaskForm):

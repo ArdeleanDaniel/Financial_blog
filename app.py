@@ -79,11 +79,12 @@ def write_article():
 	if form.validate_on_submit():
 		image_filename = str(uuid.uuid1())+'_'+secure_filename(form.image.data.filename)
 		file_path = os.path.join(app.config['UPLOAD_FOLDER'], image_filename)
-		article = Article(title=form.title.data, text=form.text.data, author=current_user.id, image=file_path, article_type=form.artycle_type.data)
+		article = Article(title=form.title.data, text=form.text.data, author=current_user.id, image=file_path, article_type=form.article_type.data)
 		form.image.data.save(file_path)
 		db.session.add(article)
 		db.session.commit()
 		flash('Your article was submited!')
+		return redirect('/home')
 	return render_template('write_article.html', form=form)
 
 @app.route('/<article_title>', methods=['GET', 'POST'])
@@ -98,3 +99,8 @@ def read_article(article_title):
 		db.session.commit()
 		return redirect(f'/{article_title}')
 	return render_template('read_article.html', article=article, user=current_user, form=form, comments=comments) 
+
+@app.route('/<category>', methods=['GET', 'POST'])
+def categories(category):
+	category = Article.query.filter_by(article_type=category)
+	return render_template('categories.html')

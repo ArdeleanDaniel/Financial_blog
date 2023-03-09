@@ -3,16 +3,15 @@
 	margin: 25px auto;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: start;
 	align-content: flex-start;
-	
 }
 
 .article-tile {
 	width: 340px;
 	height: 560px;
 	background-color: aliceblue;
-	margin: 30px 0;
+	margin: 20px 10px;
 }
 
 .article-tile-img {
