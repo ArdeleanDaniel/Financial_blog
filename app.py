@@ -100,7 +100,8 @@ def read_article(article_title):
 		return redirect(f'/{article_title}')
 	return render_template('read_article.html', article=article, user=current_user, form=form, comments=comments) 
 
-@app.route('/<category>', methods=['GET', 'POST'])
+@app.route('/home/<category>', methods=['GET', 'POST'])
 def categories(category):
 	category = Article.query.filter_by(article_type=category)
-	return render_template('categories.html')
+	print(category)
+	return render_template('categories.html', articles=category)
