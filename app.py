@@ -102,6 +102,6 @@ def read_article(article_title):
 
 @app.route('/home/<category>', methods=['GET', 'POST'])
 def categories(category):
-	category = Article.query.filter_by(article_type=category)
-	print(category)
-	return render_template('categories.html', articles=category)
+	articles = Article.query.filter_by(article_type=category)
+	
+	return render_template('categories.html', articles=articles)
