@@ -16,8 +16,12 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 db = SQLAlchemy(app)
 from models import User, Article, Comment
 
-#c = currency()
-#usd, eur = c['USD'], c['EUR']
+c = currency()
+usd, eur = c['USD'], c['EUR']
+
+@app.context_processor
+def context():
+	return dict(usd=usd, eur=eur)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -104,4 +108,4 @@ def read_article(article_title):
 def categories(category):
 	articles = Article.query.filter_by(article_type=category)
 	
-	return render_template('categories.html', articles=articles)
+	return render_template('categories.html', articles=articles, category=category)
